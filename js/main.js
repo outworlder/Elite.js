@@ -1,3 +1,5 @@
+// https://github.com/mrdoob/three.js/wiki/API-Reference
+
 var camera, scene, renderer,
 geometry, material, mesh;
 
