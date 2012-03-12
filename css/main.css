@@ -40,6 +40,9 @@
     border: 1px solid;
     border-color: #FFFFFF;
     overflow: hidden;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.1em;
 }
 
 #left-pane {
@@ -53,6 +56,7 @@
     float: left;
     height: 180px;
     position: relative;
+    border-right: 2px solid #FFFF00;
 }
 
 #right-pane {
@@ -80,6 +84,14 @@
     float: right;
     display: inline;
     height: 90%;
+}
+
+#right-pane .indicator-label {
+    float: right;
+}
+
+#right-pane .indicator-amount {
+    float: left;
 }
 
 #radar {
@@ -120,9 +132,20 @@
     margin-right: 10px;
     position: absolute;
     margin-bottom: 0;
-    float: right;
-    clear: both;
     font-size: 2em;
     font-family: 'monospace';
     color: #FF00FF;
+}
+
+.elite-title {
+    color: #00FFFF;
+    width: 100%;
+    height: 15px;
+    position: absolute;
+    bottom: 0;
+    height: 1em;
+    font-size: 0.8em;
+    font-weight: bold;
+    font-family: 'arial';
+    text-align: center;
 }
