@@ -3,14 +3,17 @@
 var camera, scene, renderer,
 geometry, material, mesh;
 
+var $screen = $('#viewscreen');
+
 init();
 animate();
 
 function init() {
-
+    var screenWidth = $screen.width();
+    var screenHeight = $screen.height();
     scene = new THREE.Scene();
 
-    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+    camera = new THREE.PerspectiveCamera( 75, screenWidth / screenHeight, 1, 10000 );
     camera.position.z = 1000;
     scene.add( camera );
 
@@ -21,17 +24,15 @@ function init() {
     scene.add( mesh );
 
     renderer = new THREE.CanvasRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( screenWidth, screenHeight );
 
-    document.body.appendChild( renderer.domElement );
+    $screen.append( renderer.domElement );
 }
 
 function animate() {
-
     // note: three.js includes requestAnimationFrame shim
-    requestAnimationFrame( animate );
+    //requestAnimationFrame( animate );
     render();
-
 }
 
 function render() {
