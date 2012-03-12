@@ -31,7 +31,7 @@ function init() {
 
 function animate() {
     // note: three.js includes requestAnimationFrame shim
-    //requestAnimationFrame( animate );
+    requestAnimationFrame( animate );
     render();
 }
 
