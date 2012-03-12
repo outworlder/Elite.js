@@ -17,7 +17,8 @@
 
 #main-screen span h1 {
     text-align: center;
-    font-size: 10px;
+    font-size: 1em;
+    font-family: 'Helvetica';
     border: 1px solid;
     padding: 0;
     margin: 0;
@@ -44,11 +45,14 @@
 #left-pane {
     float: left;
     width: 20%;
+    height: 100%;
 }
 
 #center-pane {
     width: 60%;
-    display: inline;
+    float: left;
+    height: 180px;
+    position: relative;
 }
 
 #right-pane {
@@ -76,4 +80,49 @@
     float: right;
     display: inline;
     height: 90%;
+}
+
+#radar {
+    width: 280px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -140px;
+    margin-right: auto;
+    border: 2px solid #FF0000;
+    border-radius: 280px / 100px;
+    display: inline-block;
+    position: absolute;
+}
+
+#space-compass {
+    width: 50px;
+    height: 50px;
+    float: right;
+    border: 2px solid #FFFF00;
+    border-bottom-left-radius: 25px;
+    background: #FFFF00;
+}
+
+.inner-compass {
+    background: #000000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px / 50px;
+}
+
+#aegis {
+    width: 30px;
+    height: 50px;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    position: absolute;
+    margin-bottom: 0;
+    float: right;
+    clear: both;
+    font-size: 2em;
+    font-family: 'monospace';
+    color: #FF00FF;
 }
