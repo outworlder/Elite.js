@@ -54,7 +54,7 @@
 #center-pane {
     width: 60%;
     float: left;
-    height: 180px;
+    height: 100%;
     position: relative;
     border-right: 2px solid #FFFF00;
 }
@@ -76,6 +76,10 @@
     font-weight: bold;
     width: 20%;
     float: left;
+}
+
+.missile-icon {
+    font-size:1.2em;
 }
 
 .indicator-amount {
