@@ -140,8 +140,8 @@
     display: inline-block;
     position: absolute;
     background-color: #000000;
-    background-image: -webkit-linear-gradient(top, red 0%, transparent 10%), -webkit-linear-gradient(right, red 0%, transparent 1%);
-    background-size: 50% 30%;
+    background-image: -webkit-linear-gradient(right, transparent 0%, transparent 30%, black 30%, black 60%, transparent 60%, transparent 100%), -webkit-linear-gradient(top, transparent 0%, transparent 48%, red 48%, red 50%, transparent 50%, transparent 100%), -webkit-linear-gradient(right, red 0%, transparent 1%);
+    background-size: 5% 100%, 50% 32.5%, 50% 100%
 }
 
 #space-compass {
