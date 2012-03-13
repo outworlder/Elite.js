@@ -104,6 +104,21 @@
     height: 90%;
 }
 
+.notches-split-middle {
+    background-image:-webkit-linear-gradient(right, transparent 0%, transparent 49%, green 49%, green 51%, transparent 51%, transparent 100%), -webkit-linear-gradient(bottom, transparent 0px, transparent 3px, black 3px, black 100%), -webkit-linear-gradient(right, green 0%, transparent 100%);
+    background-size: 100% 100%, 5px 100%, 5px 100%;
+}
+
+.notches-fair {
+    background-image: -webkit-linear-gradient(bottom, transparent 0px, transparent 3px, black 3px, black 100%), -webkit-linear-gradient(right, green 0%, transparent 50%);
+    background-size: 10px 100%;
+}
+
+.notches-lots {
+    background-image: -webkit-linear-gradient(bottom, transparent 0px, transparent 3px, black 3px, black 100%), -webkit-linear-gradient(right, green 0%, transparent 100%);
+    background-size: 5px 100%;
+}
+
 #right-pane .indicator-label {
     float: right;
 }
