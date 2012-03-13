@@ -124,6 +124,9 @@
     border-radius: 280px / 100px;
     display: inline-block;
     position: absolute;
+    background-color: #000000;
+    background-image: -webkit-linear-gradient(top, red 0%, transparent 10%), -webkit-linear-gradient(right, red 0%, transparent 1%);
+    background-size: 50% 30%;
 }
 
 #space-compass {
