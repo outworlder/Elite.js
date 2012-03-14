@@ -62,7 +62,7 @@
 
 #left-pane {
     float: left;
-    width: 20%;
+    width: 19%;
     height: 100%;
 }
 
@@ -76,7 +76,7 @@
 
 #right-pane {
     float: right;
-    width: 20%
+    width: 19%
 }
 
 .gauge {
