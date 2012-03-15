@@ -57,6 +57,10 @@ define_ships = ->
 
   cobra
 
+play_song = ->
+  play('assets/elite-blue-danube.mid')
+
 init_simulation()
 render()
+play_song()
 animate()
