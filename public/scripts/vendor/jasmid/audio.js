@@ -80,7 +80,7 @@ function AudioPlayer(generator, opts) {
 	} else {
 		// Fall back to creating flash player
 		var c = document.createElement('div');
-		c.innerHTML = '<embed type="application/x-shockwave-flash" id="da-swf" src="/vendor/jasmid/da.swf" width="8" height="8" allowScriptAccess="always" style="position: fixed; left:-10px;" />';
+		c.innerHTML = '<embed type="application/x-shockwave-flash" id="da-swf" src="/scripts/vendor/jasmid/da.swf" width="8" height="8" allowScriptAccess="always" style="position: fixed; left:-10px;" />';
 		document.body.appendChild(c);
 		var swf = document.getElementById('da-swf');
 		
