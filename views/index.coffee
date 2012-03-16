@@ -46,7 +46,7 @@ html ->
 
           div '#missiles.gauge', ->
             span '.indicator-label.missile-icon', ->
-              "AT"
+              "⇰"
             div '.indicator-amount.notches-fair', ->
 
         div '#center-pane', ->
