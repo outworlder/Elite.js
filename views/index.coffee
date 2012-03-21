@@ -95,7 +95,8 @@ html ->
             div '.indicator-amount', ->
 
 
-    script src: 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'
+    # script src: 'http://ajax.googleapis.caom/ajax/libs/jquery/1.7.1/jquery.min.js'
+    script src: "/scripts/vendor/jquery.js"
     script src: '/scripts/vendor/Three.js'
     script src: "/scripts/vendor/jasmid/stream.js"
     script src: "/scripts/vendor/jasmid/midifile.js"
