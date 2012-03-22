@@ -12,50 +12,71 @@ describe 'Commander', ->
       expect(@commander.name).toEqual "Jameson"
 
     it "The initial legal status must be 'Clean", ->
-      expect(@commander.legal_status).toEqual 'Clean'
+      expect(@commander.legalStatus).toEqual 'Clean'
 
     it "The commander must start with 100.0 credits", ->
       expect(@commander.credits).toEqual 100.0
 
     it "New GalCop pilot licenses are issued only at 'Lave'", ->
-      expect(@commander.current_system).toEqual 'Lave'
+      expect(@commander.currentSystem).toEqual 'Lave'
 
     it "A fresh pilot should have 0 kills", ->
       expect(@commander.kills).toEqual 0
 
     it "Commanders start out as 'Harmless'", ->
-      expect(@commander.elite_rating).toEqual "Harmless"
+      expect(@commander.eliteRating).toEqual "Harmless"
 
   describe "Elite Rating", ->
     it "Should award the rating 'Mostly Harmless' after 8 kills", ->
-      @commander.confirmed_kill(1) for kill in [0..7]
-      expect(@commander.elite_rating).toEqual "Mostly Harmless"
+      @commander.confirmedKill(1) for kill in [0..7]
+      expect(@commander.eliteRating).toEqual "Mostly Harmless"
 
     it "Should award the rating 'Poor' after 16 kills", ->
-      @commander.confirmed_kill(1) for kill in [0..15]
-      expect(@commander.elite_rating).toEqual "Poor"
+      @commander.confirmedKill(1) for kill in [0..15]
+      expect(@commander.eliteRating).toEqual "Poor"
 
     it "Should award the rating 'Average' after 32 kills", ->
-      @commander.confirmed_kill(1) for kill in [0..31]
-      expect(@commander.elite_rating).toEqual "Average"
+      @commander.confirmedKill(1) for kill in [0..31]
+      expect(@commander.eliteRating).toEqual "Average"
 
     it "Should award the rating 'Above Average' after 64 kills", ->
-      @commander.confirmed_kill(1) for kill in [0..63]
-      expect(@commander.elite_rating).toEqual "Above Average"
+      @commander.confirmedKill(1) for kill in [0..63]
+      expect(@commander.eliteRating).toEqual "Above Average"
 
     it "Should award the rating 'Competent' after 128 kills", ->
-      @commander.confirmed_kill(1) for kill in [0..127]
-      expect(@commander.elite_rating).toEqual "Competent"
+      @commander.confirmedKill(1) for kill in [0..127]
+      expect(@commander.eliteRating).toEqual "Competent"
 
     it "Should award the rating 'Dangerous' after 512 kills", ->
-      @commander.confirmed_kill(1) for kill in [0..511]
-      expect(@commander.elite_rating).toEqual "Dangerous"
+      @commander.confirmedKill(1) for kill in [0..511]
+      expect(@commander.eliteRating).toEqual "Dangerous"
 
     it "Should award the rating 'Deadly' after 2560 kills", ->
-      @commander.confirmed_kill(1) for kill in [0..2559]
-      expect(@commander.elite_rating).toEqual "Deadly"
+      @commander.confirmedKill(1) for kill in [0..2559]
+      expect(@commander.eliteRating).toEqual "Deadly"
 
     it "Should award the rating 'Elite' after 6400 kills", ->
-      @commander.confirmed_kill(1) for kill in [0..6399]
-      expect(@commander.elite_rating).toEqual "Elite"
+      @commander.confirmedKill(1) for kill in [0..6399]
+      expect(@commander.eliteRating).toEqual "Elite"
 
+  describe "Right on, Commander!", ->
+    it "Should not display any messages before 256 kills", ->
+      count = 0
+      @commander.rightOnCommander= ->
+        count = count + 1
+      @commander.confirmedKill(1) for kill in [0..254]
+      expect(count).toEqual 0
+
+    it "Should display exactly one message on reaching 256 kills", ->
+      count = 0
+      @commander.rightOnCommander= ->
+        count = count + 1
+      @commander.confirmedKill(1) for kill in [0..255]
+      expect(count).toEqual 1
+
+    it "Takes 25 messages to reach 'Elite' status", ->
+      count = 0
+      @commander.rightOnCommander= ->
+        count = count + 1
+      @commander.confirmedKill(1) for kill in [0..6399]
+      expect(count).toEqual 25

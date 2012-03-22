@@ -1,14 +1,14 @@
 class Commander
-  legal_status: 'Clean'
+  legalStatus: 'Clean'
   credits: 100.0
-  current_system: 'Lave'
+  currentSystem: 'Lave'
   kills: 0
 
-  right_on_commander: ->
+  rightOnCommander: ->
     console.log "Right on, Commander!"
 
   # Tried to do clever bit manipulation, but became confusing
-  calc_elite_rating: ->
+  calcEliteRating: ->
     galcop_elite_ratings =
       0: "Harmless",
       8: "Mostly Harmless",
@@ -23,15 +23,16 @@ class Commander
     largest = 0
     for i, rating of galcop_elite_ratings
       largest = i if this.kills >= i
-    this.elite_rating = galcop_elite_ratings[largest]
+    this.rightOnCommander() if this.kills % 256 is 0 and this.kills > 0
+    this.eliteRating = galcop_elite_ratings[largest]
 
-  confirmed_kill: (bounty) ->
+  confirmedKill: (bounty) ->
     this.kills = this.kills + 1
     this.credits = this.credits + bounty
-    this.calc_elite_rating()
+    this.calcEliteRating()
 
   constructor: (@name = "Jameson") ->
-    this.calc_elite_rating()
+    this.calcEliteRating()
 
 # As explained here: http://autotelicum.github.com/Smooth-CoffeeScript/interactive/interactive-coffeescript.html#object-oriented-programming
 (exports ? this).Commander = Commander
