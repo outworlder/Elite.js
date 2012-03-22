@@ -42,6 +42,7 @@ class Commodity
     return if not this.types[@name]?
 
     this.unit = this.types[@name].unit
+    this.legal = not this.types[@name].illegal
 
   isValid: ->
     return this.unit?
