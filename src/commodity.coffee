@@ -48,12 +48,12 @@ class Commodity
     return this.unit?
 
 class Cargohold
-
   constructor: ->
     this.items = []
 
   addItem: (commodity) ->
-    this.items.push(commodity) if commodity.isValid()
+    count = this.items.length
+    this.items.push(commodity) if commodity.isValid() and not (this.limit? and count >= this.limit)
 
   removeItem: (commodity) ->
     t = this.items.indexOf(commodity)
