@@ -71,3 +71,16 @@ describe 'Cargohold', ->
     inv = @full_cargohold.inventory()
     expect(inv["Furs"]).toBeUndefined()
     expect(inv["Food"]["amount"]).toBe 2
+
+  it "If a limit is set, the container must respect it", ->
+    @cargohold.limit = 2
+    @cargohold.addItem new Commodity "Furs"
+    @cargohold.addItem new Commodity "Slaves"
+    @cargohold.addItem new Commodity "Machinery"
+    expect(@cargohold.items.length).toBe 2
+
+  it "Should be possible to detect if an item was added or not", ->
+    @cargohold.limit = 1
+    expect(@cargohold.addItem new Commodity "Liquor/Wines").toBeTruthy()
+    expect(@cargohold.addItem new Commodity "Minerals").toBeFalsy()
+    expect(@cargohold.addItem new Commodity "Minerals").toBeFalsy()
