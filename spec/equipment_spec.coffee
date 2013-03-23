@@ -1,6 +1,4 @@
-e = require('../src/equipment')
-
-Equipment = e.Equipment
+Equipment = require('../src/equipment').Equipment
 
 describe 'Equipment', ->
   beforeEach ->

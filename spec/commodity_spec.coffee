@@ -1,7 +1,4 @@
-c = require('../src/commodity')
-
-Commodity = c.Commodity
-Cargohold = c.Cargohold
+{ Commodity, Cargohold }  = require('../src/commodity')
 
 describe 'Commodity', ->
   beforeEach ->

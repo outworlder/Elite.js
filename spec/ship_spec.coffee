@@ -1,6 +1,4 @@
-s = require('../src/ship')
-
-Ship = s.Ship
+Ship = require('../src/ship').Ship
 
 describe 'Ship', ->
   beforeEach ->
