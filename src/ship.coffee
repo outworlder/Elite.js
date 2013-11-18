@@ -8,5 +8,6 @@ class Ship
     this.system = "Lave"
     this.destinationSystem = "Lave"
     this.condition = "Docked"
+    this.equipment = []
 
 (exports ? this).Ship = Ship
