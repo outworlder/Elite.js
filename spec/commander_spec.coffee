@@ -80,3 +80,31 @@ describe 'Commander', ->
         count = count + 1
       @commander.confirmedKill(1) for kill in [0..6399]
       expect(count).toEqual 25
+
+  describe "Money!", ->
+    it "Can spend some money", ->
+      @commander.spendCredits(10)
+      expect(@commander.credits).toEqual 90
+
+    it "Can never spend an amount which is less than zero", ->
+      expect(=> @commander.spendCredits(-1)).toThrow(new Error "Invalid monetary amount")
+
+    it "Is able to check if the commander can afford the transaction", ->
+      expect(@commander.canSpend 110).toBeFalsy()
+      expect(@commander.canSpend 100).toBeTruthy()
+      expect(@commander.canSpend 10).toBeTruthy()
+
+    it "Can never be in debt", ->
+      @commander.spendCredits(50)
+      expect(@commander.credits).toEqual 50
+      @commander.spendCredits(40)
+      expect(@commander.credits).toEqual 10
+      @commander.spendCredits(15)
+      expect(@commander.credits).toEqual 10
+
+    it "Can earn money", ->
+      @commander.earnCredits(1000)
+      expect(@commander.credits).toEqual 1100
+
+    it "Can never earn an amount which is less than zero", ->
+      expect(=> @commander.earnCredits(-1)).toThrow(new Error "Invalid monetary amount")

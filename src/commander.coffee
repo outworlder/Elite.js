@@ -31,9 +31,23 @@ class Commander
     this.credits = this.credits + bounty
     this.calcEliteRating()
 
+  spendCredits: (amount) ->
+    throw new Error "Invalid monetary amount" if amount < 0
+
+    @credits -= amount if @canSpend(amount)
+    @credits
+
+  canSpend: (amount) ->
+    @credits - amount >= 0
+
+  earnCredits: (amount) ->
+    throw new Error "Invalid monetary amount" if amount < 0
+
+    @credits += amount
+    @credits
+
   constructor: (@name = "Jameson") ->
     this.calcEliteRating()
 
 # As explained here: http://autotelicum.github.com/Smooth-CoffeeScript/interactive/interactive-coffeescript.html#object-oriented-programming
 (exports ? this).Commander = Commander
-
