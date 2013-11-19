@@ -31,3 +31,7 @@ describe 'Ship', ->
       expect(@ship.condition).toBeDefined()
     it "Should be docked in the beginning", ->
       expect(@ship.condition).toBe "Docked"
+
+  describe "Equipment", ->
+    it "Should have an equipment bay", ->
+      expect(@ship.equipment).toBeDefined()
