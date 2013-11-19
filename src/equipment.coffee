@@ -61,14 +61,14 @@ class Equipment
     "Wormhole Scanner":
       cost: 2395.0
       techLevel: 10
-      
-  constructor: (@name) ->
-    return if not this.types[@name]?
 
-    this.cost = this.types[@name].cost
-    this.techLevel = this.types[@name].techLevel
+  constructor: (@name) ->
+    return if not @types[@name]?
+
+    @cost = @types[@name].cost
+    @techLevel = @types[@name].techLevel
 
   isValid: ->
-    return this.types[@name]?
+    return @types[@name]?
 
 (exports ? this).Equipment = Equipment

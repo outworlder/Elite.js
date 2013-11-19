@@ -22,14 +22,14 @@ class Commander
 
     largest = 0
     for i, rating of galcop_elite_ratings
-      largest = i if this.kills >= i
-    this.rightOnCommander() if this.kills % 256 is 0 and this.kills > 0
-    this.eliteRating = galcop_elite_ratings[largest]
+      largest = i if @kills >= i
+    @rightOnCommander() if @kills % 256 is 0 and @kills > 0
+    @eliteRating = galcop_elite_ratings[largest]
 
   confirmedKill: (bounty) ->
-    this.kills = this.kills + 1
-    this.credits = this.credits + bounty
-    this.calcEliteRating()
+    @kills = @kills + 1
+    @credits = @credits + bounty
+    @calcEliteRating()
 
   spendCredits: (amount) ->
     throw new Error "Invalid monetary amount" if amount < 0
@@ -47,7 +47,7 @@ class Commander
     @credits
 
   constructor: (@name = "Jameson") ->
-    this.calcEliteRating()
+    @calcEliteRating()
 
 # As explained here: http://autotelicum.github.com/Smooth-CoffeeScript/interactive/interactive-coffeescript.html#object-oriented-programming
 (exports ? this).Commander = Commander

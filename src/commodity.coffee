@@ -39,42 +39,42 @@ class Commodity
       unit: "TC"
 
   constructor: (@name) ->
-    return if not this.types[@name]?
+    return if not @types[@name]?
 
-    this.unit = this.types[@name].unit
-    this.legal = not this.types[@name].illegal
+    @unit = @types[@name].unit
+    @legal = not @types[@name].illegal
 
   isValid: ->
-    return this.unit?
+    return @unit?
 
 class Cargohold
   constructor: ->
-    this.items = []
+    @items = []
 
   addItem: (commodity) ->
-    count = this.items.length
-    this.items.push(commodity) if commodity.isValid() and not (this.limit? and count >= this.limit)
+    count = @items.length
+    @items.push(commodity) if commodity.isValid() and not (@limit? and count >= @limit)
 
   removeItem: (commodity) ->
-    t = this.items.indexOf(commodity)
-    this.items.splice(t,1) if t > -1
+    t = @items.indexOf(commodity)
+    @items.splice(t,1) if t > -1
 
     # Counts the number of identical items in the cargohold
   numberOfItems: (commodity) ->
     n = 0
-    ++n for item in this.items when item.name is commodity.name
+    ++n for item in @items when item.name is commodity.name
     n
 
   fullInventory: ->
     inv = {}
     for name, data of (new Commodity "Dummy").types
-      inv[name] = { amount: this.numberOfItems(new Commodity name), unit: data.unit }
+      inv[name] = { amount: @numberOfItems(new Commodity name), unit: data.unit }
     inv
 
   inventory: ->
     inv = {}
-    for c in this.items
-      inv[c.name] = { amount: this.numberOfItems(c), unit: c.unit }
+    for c in @items
+      inv[c.name] = { amount: @numberOfItems(c), unit: c.unit }
     inv
 
 (exports ? this).Commodity = Commodity
